@@ -219,7 +219,7 @@ footer{padding:60px 0 48px;text-align:center;position:relative;z-index:2;opacity
       <div class="proj"><div class="proj-src">VidMob</div><div class="proj-name">High-Priority Processing System</div><div class="proj-tech">AWS Lambda &amp; SQS</div><div class="proj-desc">Reduced ML annotation pipeline SLO from 24 hours to 60 minutes for premium customers by designing priority queue systems. Resolved bottlenecks through systematic analysis and resource optimization.</div></div>
       <div class="proj"><div class="proj-src">VidMob</div><div class="proj-name">Frame Extraction Service</div><div class="proj-tech">MediaConvert &amp; Terraform</div><div class="proj-desc">Built a scalable video frame extraction service using AWS Elemental MediaConvert and Lambda, transforming video into frame-level data for downstream ML pipelines. Automated infra with Terraform across cross-account workflows.</div></div>
       <div class="proj"><div class="proj-src">VidMob</div><div class="proj-name">File Processing Microservice</div><div class="proj-tech">EventBridge &amp; Lambda</div><div class="proj-desc">Built a backend microservice for multi-format file identification and event-driven routing through ML pipelines. Modernized legacy code to support new media types in production end-to-end.</div></div>
-      <div class="proj"><div class="proj-src">Independent</div><div class="proj-name">TikTok Clone</div><div class="proj-tech">Flutter + Supabase</div><div class="proj-desc">Full-stack mobile app with Supabase cloud backend (PostgreSQL, Auth, Storage, real-time subscriptions). Used AI coding tools as force multipliers. Managed full lifecycle with Trello Kanban boards through delivery.</div></div>
+      <div class="proj" data-link="https://github.com/bradford-halter/tiktok_clone_mac"><div class="proj-src">Independent</div><div class="proj-name">TikTok Clone</div><div class="proj-tech">Flutter + Supabase</div><div class="proj-desc">Full-stack mobile app with Supabase cloud backend (PostgreSQL, Auth, Storage, real-time subscriptions). Used AI coding tools as force multipliers. Managed full lifecycle with Trello Kanban boards through delivery.</div></div>
       <div class="proj"><div class="proj-src">Independent</div><div class="proj-name">Book API</div><div class="proj-tech">Django REST Framework &#183; Oct 2025</div><div class="proj-desc">Built a structured data API following Google&#8217;s coding standards, focused on clean record-keeping and maintainability.</div></div>
     </div>
   </section>
@@ -270,6 +270,10 @@ overlay.innerHTML = `<div class="modal">
   <div class="modal-name" id="mname"></div>
   <div class="modal-tech" id="mtech"></div>
   <div class="modal-desc" id="mdesc"></div>
+  <a class="modal-link" id="mlink" href="#" target="_blank" style="display:none;margin-top:24px;display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-size:12px;font-weight:600;color:var(--amber2);text-decoration:none;border:1px solid rgba(223,168,74,.3);padding:8px 16px;border-radius:100px;transition:all .25s;margin-top:24px">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+    View on GitHub
+  </a>
 </div>`;
 document.body.appendChild(overlay);
 
@@ -279,6 +283,10 @@ document.querySelectorAll('.proj').forEach(card => {
     document.getElementById('mname').textContent = card.querySelector('.proj-name').textContent;
     document.getElementById('mtech').textContent = card.querySelector('.proj-tech').textContent;
     document.getElementById('mdesc').textContent = card.querySelector('.proj-desc').textContent;
+    const link = document.getElementById('mlink');
+    const url = card.dataset.link;
+    if (url) { link.href = url; link.style.display = 'inline-flex'; }
+    else { link.style.display = 'none'; }
     overlay.classList.add('open');
   });
 });
