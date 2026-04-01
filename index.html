@@ -125,6 +125,19 @@ footer{padding:60px 0 48px;text-align:center;position:relative;z-index:2;opacity
 .modal-desc{font-size:14px;color:var(--cream2);line-height:1.75;font-weight:300}
 .modal-close{position:absolute;top:16px;right:20px;background:none;border:none;color:var(--muted);font-size:22px;cursor:pointer;line-height:1;transition:color .2s;font-family:var(--sans)}
 .modal-close:hover{color:var(--cream)}
+
+.proj-wip{grid-column:1/-1;background:var(--bg2);border:1px solid rgba(223,168,74,0.35);border-radius:20px;padding:28px 28px 28px 30px;position:relative;overflow:hidden;transition:all .35s cubic-bezier(.16,1,.3,1);cursor:pointer}
+.proj-wip::before{content:"";position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--amber2),var(--amber))}
+.proj-wip:hover{border-color:rgba(223,168,74,.55);transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,.35)}
+.wip-header{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.wip-badge{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--bg);background:var(--amber);padding:4px 12px;border-radius:100px}
+.wip-dot{width:6px;height:6px;background:var(--bg);border-radius:50%;animation:pulse 1.8s infinite}
+.proj-wip .proj-name{font-size:18px;font-weight:700;color:var(--cream);letter-spacing:-.3px;margin-bottom:4px}
+.proj-wip .proj-tech{font-size:11px;font-weight:500;color:var(--muted);margin-bottom:16px}
+.wip-features{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:14px}
+.wip-feature{background:rgba(223,168,74,.05);border:1px solid var(--border2);border-radius:12px;padding:12px 14px}
+.wip-feature-title{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--terra);margin-bottom:5px}
+.wip-feature-desc{font-size:12px;color:var(--cream2);line-height:1.55;font-weight:300}
 @keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
 @keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:.5}}
 @media(max-width:680px){
@@ -216,6 +229,22 @@ footer{padding:60px 0 48px;text-align:center;position:relative;z-index:2;opacity
   <section class="section" id="projects">
     <div class="eyebrow"><span class="eyebrow-num">iii.</span><h2 class="eyebrow-title">Projects</h2><div class="eyebrow-line"></div></div>
     <div class="proj-grid">
+      <div class="proj-wip" data-link="">
+        <div class="wip-header">
+          <div class="wip-badge"><span class="wip-dot"></span>Currently Working On</div>
+          <div class="proj-src" style="margin-bottom:0">Independent</div>
+        </div>
+        <div class="proj-name">Bookshelf App</div>
+        <div class="proj-tech">FastAPI + SQLAlchemy + SQLite &nbsp;&#183;&nbsp; React 18 + Vite + Context API</div>
+        <div class="proj-desc">A full-stack personal book collection manager — scan barcodes, track physical shelf locations, and manage detailed collector metadata entirely with free APIs.</div>
+        <div class="wip-features">
+          <div class="wip-feature"><div class="wip-feature-title">Scanning</div><div class="wip-feature-desc">Live camera barcode scan (Quagga2), image upload with fallback, or title/author search — all via OpenLibrary. No paid APIs.</div></div>
+          <div class="wip-feature"><div class="wip-feature-title">Collection Metadata</div><div class="wip-feature-desc">Full bibliographic fields plus collector data: signed copies, first editions, condition, estimated value, room &amp; shelf location.</div></div>
+          <div class="wip-feature"><div class="wip-feature-title">Photos</div><div class="wip-feature-desc">Separate cover and spine photos per book. Auto-normalizes HEIC, AVIF, WebP, PNG &#8594; JPEG. Fullscreen photo viewer on click.</div></div>
+          <div class="wip-feature"><div class="wip-feature-title">Themes &amp; UI</div><div class="wip-feature-desc">Four switchable themes (Cozy, Midnight, Minimal, Antiquarian) with unique font pairings, persisted across sessions.</div></div>
+        </div>
+      </div>
+
       <div class="proj"><div class="proj-src">VidMob</div><div class="proj-name">High-Priority Processing System</div><div class="proj-tech">AWS Lambda &amp; SQS</div><div class="proj-desc">Reduced ML annotation pipeline SLO from 24 hours to 60 minutes for premium customers by designing priority queue systems. Resolved bottlenecks through systematic analysis and resource optimization.</div></div>
       <div class="proj"><div class="proj-src">VidMob</div><div class="proj-name">Frame Extraction Service</div><div class="proj-tech">MediaConvert &amp; Terraform</div><div class="proj-desc">Built a scalable video frame extraction service using AWS Elemental MediaConvert and Lambda, transforming video into frame-level data for downstream ML pipelines. Automated infra with Terraform across cross-account workflows.</div></div>
       <div class="proj"><div class="proj-src">VidMob</div><div class="proj-name">File Processing Microservice</div><div class="proj-tech">EventBridge &amp; Lambda</div><div class="proj-desc">Built a backend microservice for multi-format file identification and event-driven routing through ML pipelines. Modernized legacy code to support new media types in production end-to-end.</div></div>
