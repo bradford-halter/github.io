@@ -130,7 +130,9 @@ footer{padding:60px 0 48px;text-align:center;position:relative;z-index:2;opacity
 .proj-wip::before{content:"";position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--amber2),var(--amber))}
 .proj-wip:hover{border-color:rgba(223,168,74,.55);transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,.35)}
 .wip-header{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
-.wip-badge{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--bg);background:var(--amber);padding:4px 12px;border-radius:100px}
+.wip-badge{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--bg);background:var(--amber);padding:4px 12px;border-radius:100px;position:relative;overflow:hidden}
+.wip-badge::after{content:"";position:absolute;top:0;left:-75%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.45),transparent);transform:skewX(-20deg);animation:sheen 5s ease-in-out infinite}
+@keyframes sheen{0%,100%{left:-75%}60%,80%{left:125%}}
 .wip-dot{width:6px;height:6px;background:var(--bg);border-radius:50%;animation:pulse 1.8s infinite}
 .proj-wip .proj-name{font-size:18px;font-weight:700;color:var(--cream);letter-spacing:-.3px;margin-bottom:4px}
 .proj-wip .proj-tech{font-size:11px;font-weight:500;color:var(--muted);margin-bottom:16px}
@@ -229,7 +231,7 @@ footer{padding:60px 0 48px;text-align:center;position:relative;z-index:2;opacity
   <section class="section" id="projects">
     <div class="eyebrow"><span class="eyebrow-num">iii.</span><h2 class="eyebrow-title">Projects</h2><div class="eyebrow-line"></div></div>
     <div class="proj-grid">
-      <div class="proj-wip" data-link="">
+      <div class="proj-wip" data-link="https://github.com/bradford-halter/bookshelf-app">
         <div class="wip-header">
           <div class="wip-badge"><span class="wip-dot"></span>Currently Working On</div>
           <div class="proj-src" style="margin-bottom:0">Independent</div>
@@ -244,11 +246,27 @@ footer{padding:60px 0 48px;text-align:center;position:relative;z-index:2;opacity
           <div class="wip-feature"><div class="wip-feature-title">Themes &amp; UI</div><div class="wip-feature-desc">Four switchable themes (Cozy, Midnight, Minimal, Antiquarian) with unique font pairings, persisted across sessions.</div></div>
         </div>
       </div>
+      <div class="proj proj-wip" data-link="https://github.com/bradford-halter/tiktok_clone_mac" style="grid-column:1/-1">
+  <div class="wip-header">
+    <div class="proj-src" style="margin-bottom:0">Independent</div>
+  </div>
+  <div class="proj-name">TikTok Clone</div>
+  <div class="proj-tech">Flutter + Dart &nbsp;&#183;&nbsp; Supabase (Auth, PostgreSQL, Storage, Realtime) &nbsp;&#183;&nbsp; FFmpeg &nbsp;&#183;&nbsp; iOS + macOS</div>
+  <div class="proj-desc" style="margin-bottom:16px">A full-featured short-form video platform replicating the core TikTok experience — vertical feeds, social graph, real-time messaging, camera recording with music, and a full discovery system. Backed entirely by Supabase with row-level security on all tables.</div>
+  <div class="wip-features">
+    <div class="wip-feature"><div class="wip-feature-title">Video &amp; Camera</div><div class="wip-feature-desc">Native recording on iOS &amp; macOS, FFmpeg trim/filter/export at 720p, thumbnail + 3s looping clip generation on upload, background Jamendo music during recording.</div></div>
+    <div class="wip-feature"><div class="wip-feature-title">Feed &amp; Discovery</div><div class="wip-feature-desc">For You + Following feeds with independent scroll state. Discover screen: 3-column grid, search by description/username/location, thumbnails fade to looping clips, pull-to-refresh.</div></div>
+    <div class="wip-feature"><div class="wip-feature-title">Social Graph</div><div class="wip-feature-desc">Follow/unfollow, likes with optimistic UI, bookmarks, comments with per-comment likes, live counts batch-fetched in parallel to minimise round trips.</div></div>
+    <div class="wip-feature"><div class="wip-feature-title">Real-time Messaging</div><div class="wip-feature-desc">1:1 chat via Supabase Realtime, live unread badge, swipe-to-reveal timestamps, alphabetic conversation deduplication, user search by name or @username.</div></div>
+    <div class="wip-feature"><div class="wip-feature-title">Location &amp; Music</div><div class="wip-feature-desc">GPS capture on upload, Nominatim reverse geocoding, tappable locations jump to filtered Discover. Jamendo genre browser with track preview and sound attribution per video.</div></div>
+    <div class="wip-feature"><div class="wip-feature-title">Architecture</div><div class="wip-feature-desc">Service-layer isolation (no direct DB calls from screens), batch parallel fetching, GlobalKey navigation for cross-tab search injection, app-wide offline mode toggle.</div></div>
+  </div>
+</div>
 
       <div class="proj"><div class="proj-src">VidMob</div><div class="proj-name">High-Priority Processing System</div><div class="proj-tech">AWS Lambda &amp; SQS</div><div class="proj-desc">Reduced ML annotation pipeline SLO from 24 hours to 60 minutes for premium customers by designing priority queue systems. Resolved bottlenecks through systematic analysis and resource optimization.</div></div>
       <div class="proj"><div class="proj-src">VidMob</div><div class="proj-name">Frame Extraction Service</div><div class="proj-tech">MediaConvert &amp; Terraform</div><div class="proj-desc">Built a scalable video frame extraction service using AWS Elemental MediaConvert and Lambda, transforming video into frame-level data for downstream ML pipelines. Automated infra with Terraform across cross-account workflows.</div></div>
       <div class="proj"><div class="proj-src">VidMob</div><div class="proj-name">File Processing Microservice</div><div class="proj-tech">EventBridge &amp; Lambda</div><div class="proj-desc">Built a backend microservice for multi-format file identification and event-driven routing through ML pipelines. Modernized legacy code to support new media types in production end-to-end.</div></div>
-      <div class="proj" data-link="https://github.com/bradford-halter/tiktok_clone_mac"><div class="proj-src">Independent</div><div class="proj-name">TikTok Clone</div><div class="proj-tech">Flutter + Supabase</div><div class="proj-desc">Full-stack mobile app with Supabase cloud backend (PostgreSQL, Auth, Storage, real-time subscriptions). Used AI coding tools as force multipliers. Managed full lifecycle with Trello Kanban boards through delivery.</div></div>
+      
       <div class="proj"><div class="proj-src">Independent</div><div class="proj-name">Book API</div><div class="proj-tech">Django REST Framework &#183; Oct 2025</div><div class="proj-desc">Built a structured data API following Google&#8217;s coding standards, focused on clean record-keeping and maintainability.</div></div>
     </div>
   </section>
