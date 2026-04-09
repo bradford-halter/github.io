@@ -131,7 +131,7 @@ footer{padding:60px 0 48px;text-align:center;position:relative;z-index:2;opacity
 .proj-wip:hover{border-color:rgba(223,168,74,.55);transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,.35)}
 .wip-header{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
 .wip-badge{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--bg);background:var(--amber);padding:4px 12px;border-radius:100px;position:relative;overflow:hidden}
-.wip-badge::after{content:"";position:absolute;top:0;left:-75%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.45),transparent);transform:skewX(-20deg);animation:sheen 5s ease-in-out infinite}
+.wip-badge::after{content:"";position:absolute;top:0;left:-75%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.45),transparent);transform:skewX(-20deg);animation:sheen 3s ease-in-out infinite}
 @keyframes sheen{0%,100%{left:-75%}60%,80%{left:125%}}
 .wip-dot{width:6px;height:6px;background:var(--bg);border-radius:50%;animation:pulse 1.8s infinite}
 .proj-wip .proj-name{font-size:18px;font-weight:700;color:var(--cream);letter-spacing:-.3px;margin-bottom:4px}
@@ -237,28 +237,31 @@ footer{padding:60px 0 48px;text-align:center;position:relative;z-index:2;opacity
           <div class="proj-src" style="margin-bottom:0">Independent</div>
         </div>
         <div class="proj-name">Bookshelf</div>
-        <div class="proj-tech">FastAPI + PostgreSQL + MinIO &nbsp;&#183;&nbsp; React &nbsp;&#183;&nbsp; iPhone PWA (HTTPS, local network)</div>
-        <div class="proj-desc">A personal book collection manager running as a full-stack web app and iPhone PWA on your home network. Scan a barcode with your phone camera, auto-fetch metadata from OpenLibrary, and it lands in your library — no paid APIs, no cloud required.</div>
+        <div class="proj-tech">FastAPI + PostgreSQL + MinIO &nbsp;&#183;&nbsp; React &nbsp;&#183;&nbsp; iPhone PWA</div>
+        <div class="proj-desc">A full-stack personal book collection manager and iPhone PWA. Scan a barcode, get full metadata from OpenLibrary instantly, and build your library with no paid APIs and no cloud required.</div>
         <div class="wip-features">
-          <div class="wip-feature"><div class="wip-feature-title">Scanning</div><div class="wip-feature-desc">Live camera barcode stream &#8594; OpenLibrary metadata lookup (database-first). Instantly adds the book with full bibliographic data.</div></div>
-          <div class="wip-feature"><div class="wip-feature-title">Photos &amp; Storage</div><div class="wip-feature-desc">Separate cover and spine photo uploads stored in MinIO object storage. Fullscreen photo viewer on tap.</div></div>
-          <div class="wip-feature"><div class="wip-feature-title">Organisation</div><div class="wip-feature-desc">Assign books to physical rooms and shelves. Filter bar with Recent, Unread, Top Rated, and Location views — all with infinite scroll.</div></div>
-          <div class="wip-feature"><div class="wip-feature-title">Discovery</div><div class="wip-feature-desc">Next Read recommendation card surfaces what to read next. Reading status and ratings tracked per book.</div></div>
-          <div class="wip-feature"><div class="wip-feature-title">Themes</div><div class="wip-feature-desc">9 themes including Dark Academia and Botanist, each with unique font pairings. Persisted across sessions.</div></div>
-          <div class="wip-feature"><div class="wip-feature-title">Polish</div><div class="wip-feature-desc">Antique doors loading animation with wood grain texture and walk-in zoom effect. Installable on iPhone as a PWA via trusted self-signed HTTPS cert.</div></div>
+          <div class="wip-feature"><div class="wip-feature-title">Barcode Scanning</div><div class="wip-feature-desc">Live camera stream detects ISBN barcodes and fetches full bibliographic metadata from OpenLibrary, database-first for instant repeat lookups.</div></div>
+          <div class="wip-feature"><div class="wip-feature-title">Photo Storage</div><div class="wip-feature-desc">Separate cover and spine photo uploads stored in MinIO object storage, with a fullscreen photo viewer on tap.</div></div>
+          <div class="wip-feature"><div class="wip-feature-title">Physical Organization</div><div class="wip-feature-desc">Assign books to rooms and shelves. Filter bar with All, Unread, Currently Reading, Top Rated, Location, and Series views &#8212; all with infinite scroll.</div></div>
+          <div class="wip-feature"><div class="wip-feature-title">Multi-User</div><div class="wip-feature-desc">Multiple accounts with per-user reading status, ratings, notes, and library. Session tokens with cross-device sign-out.</div></div>
+          <div class="wip-feature"><div class="wip-feature-title">Copy Tracking</div><div class="wip-feature-desc">Model multiple physical copies of the same book, each with its own condition, location, signed status, and edition details. Reading status and rating shared across copies.</div></div>
+          <div class="wip-feature"><div class="wip-feature-title">Series Management</div><div class="wip-feature-desc">Global series catalog with per-book assignment and a dedicated filter pill in the bar.</div></div>
+          <div class="wip-feature"><div class="wip-feature-title">Offline Mode</div><div class="wip-feature-desc">Full PWA with IndexedDB caching. Browse and edit your library without a connection. Writes queue locally and sync automatically on reconnect, with ISBN matching to verify manually-added books.</div></div>
+          <div class="wip-feature"><div class="wip-feature-title">Next Read</div><div class="wip-feature-desc">Recommendation card surfaces what to read next based on your unread books.</div></div>
+          <div class="wip-feature"><div class="wip-feature-title">Themes &amp; PWA</div><div class="wip-feature-desc">10 themes including Dark Academia, Botanist, and Standard (light), each with unique font pairings. Installable on iPhone via trusted self-signed HTTPS. Antique doors loading animation with wood grain texture and walk-in zoom effect.</div></div>
         </div>
       </div>
       <div class="proj proj-wip" data-link="https://github.com/bradford-halter/tiktok_clone_mac" style="grid-column:1/-1">
   <div class="wip-header">
     <div class="proj-src" style="margin-bottom:0">Independent</div>
   </div>
-  <div class="proj-name">TikTok Clone</div>
+  <div class="proj-name">Not TikTok</div>
   <div class="proj-tech">Flutter + Dart &nbsp;&#183;&nbsp; Supabase (Auth, PostgreSQL, Storage, Realtime) &nbsp;&#183;&nbsp; FFmpeg &nbsp;&#183;&nbsp; iOS + macOS</div>
   <div class="proj-desc" style="margin-bottom:16px">A full-featured short-form video platform replicating the core TikTok experience — vertical feeds, social graph, real-time messaging, camera recording with music, and a full discovery system. Backed entirely by Supabase with row-level security on all tables.</div>
   <div class="wip-features">
     <div class="wip-feature"><div class="wip-feature-title">Video &amp; Camera</div><div class="wip-feature-desc">Native recording on iOS &amp; macOS, FFmpeg trim/filter/export at 720p, thumbnail + 3s looping clip generation on upload, background Jamendo music during recording.</div></div>
     <div class="wip-feature"><div class="wip-feature-title">Feed &amp; Discovery</div><div class="wip-feature-desc">For You + Following feeds with independent scroll state. Discover screen: 3-column grid, search by description/username/location, thumbnails fade to looping clips, pull-to-refresh.</div></div>
-    <div class="wip-feature"><div class="wip-feature-title">Social Graph</div><div class="wip-feature-desc">Follow/unfollow, likes with optimistic UI, bookmarks, comments with per-comment likes, live counts batch-fetched in parallel to minimise round trips.</div></div>
+    <div class="wip-feature"><div class="wip-feature-title">Social Graph</div><div class="wip-feature-desc">Follow/unfollow, likes with optimistic UI, bookmarks, comments with per-comment likes, live counts batch-fetched in parallel to minimize round trips.</div></div>
     <div class="wip-feature"><div class="wip-feature-title">Real-time Messaging</div><div class="wip-feature-desc">1:1 chat via Supabase Realtime, live unread badge, swipe-to-reveal timestamps, alphabetic conversation deduplication, user search by name or @username.</div></div>
     <div class="wip-feature"><div class="wip-feature-title">Location &amp; Music</div><div class="wip-feature-desc">GPS capture on upload, Nominatim reverse geocoding, tappable locations jump to filtered Discover. Jamendo genre browser with track preview and sound attribution per video.</div></div>
     <div class="wip-feature"><div class="wip-feature-title">Architecture</div><div class="wip-feature-desc">Service-layer isolation (no direct DB calls from screens), batch parallel fetching, GlobalKey navigation for cross-tab search injection, app-wide offline mode toggle.</div></div>
